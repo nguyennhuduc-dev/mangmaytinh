@@ -72,7 +72,7 @@ h1,.top .cnt b,.ring text,.verdict{font-family:var(--f1)}
 @keyframes pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
 .top .cnt b{font-size:2.6rem;font-weight:700;letter-spacing:-.02em}
 .opt{border-left:6px solid var(--rc,var(--ln))}
-.opt[data-j="0"]{--rc:var(--c0)}.opt[data-j="1"]{--rc:var(--c1)}.opt[data-j="2"]{--rc:var(--c2)}.opt[data-j="3"]{--rc:var(--c3)}
+.opt[data-d="0"]{--rc:var(--c0)}.opt[data-d="1"]{--rc:var(--c1)}.opt[data-d="2"]{--rc:var(--c2)}.opt[data-d="3"]{--rc:var(--c3)}
 .qt{font-size:1.25rem}
 .nav{position:sticky;bottom:0;background:var(--bg);padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));margin-top:10px}
 .verdict{font-size:1.35rem;font-weight:700;margin:0 0 4px}
@@ -127,3 +127,4 @@ body{background-image:radial-gradient(color-mix(in srgb,var(--ln) 85%,transparen
 .conf{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:9}
 .conf i{position:absolute;top:-16px;width:8px;height:14px;border-radius:2px;animation:fall linear forwards}
 @keyframes fall{from{transform:translateY(0) rotate(0)}to{transform:translateY(105vh) rotate(560deg)}}
+.chk small{display:block;font-weight:400}

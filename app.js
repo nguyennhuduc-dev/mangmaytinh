@@ -1,10 +1,19 @@
 const app=document.getElementById('app'),LT='abcdef';
 const eq=(a,b)=>!!a&&!!b&&a.length===b.length&&a.every(x=>b.includes(x));
-const fmt=a=>a&&a.length?a.map(x=>LT[x].toUpperCase()).join('+'):'—';
+const fmt=(a,i)=>{const o=S&&S.ord&&S.ord[i],m=x=>o?o.indexOf(x):x;return a&&a.length?a.map(m).sort((x,y)=>x-y).map(x=>LT[x].toUpperCase()).join('+'):'—'};
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const KEY=Q.map(q=>q.k);
 try{const t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
 let S=null;
+const LREF=/\b[A-D]\s*(và|,)\s*[A-D]\b|\b(chỉ|Chỉ|cả|Cả)\s+[A-D]\b/;
+const META=t=>/^(cả|tất cả)\b/i.test(t.trim())||/(đều đúng|đều sai|đáp án trên|ý trên|trên đều)/i.test(t);
+function shuf(o){
+ const id=o.map((_,j)=>j);if(o.some(t=>LREF.test(t)))return id;
+ const free=id.filter(j=>!META(o[j])),m=free.slice();
+ for(let a=m.length-1;a>0;a--){const b=Math.floor(Math.random()*(a+1));[m[a],m[b]]=[m[b],m[a]]}
+ const out=id.slice();free.forEach((pos,k)=>{out[pos]=m[k]});return out;
+}
+const mkOrd=(list,so)=>{const r={};list.forEach(i=>{r[i]=so?shuf(Q[i].o):Q[i].o.map((_,j)=>j)});return r};
 function qhtml(i){
  const q=Q[i],im=q.f?`<div class="fig"><img src="${q.f}" alt="Hình minh họa"></div>`:'';
  const parts=esc(q.t).split('[[fig]]').map(p=>p.trim()?`<div class="qt">${p.trim()}</div>`:'');
@@ -44,6 +53,7 @@ function home(){
  <h2>Chế độ</h2>${seg('mode',[['p','Luyện tập','Báo đúng hoặc sai ngay sau mỗi câu'],['e','Thi','Chỉ chấm điểm khi nộp bài']],true)}
  <h2>Chương</h2><div class="seg">${[1,2,3,4,5,6,7].map(c=>`<label><input type="checkbox" name="ch" value="${c}" checked><span>Chương ${c} <small>${Q.filter(q=>q.c===c).length} câu</small></span></label>`).join('')}</div>
  <label class="chk"><input type="checkbox" id="shuf" checked> Trộn thứ tự câu hỏi</label>
+ <label class="chk"><input type="checkbox" id="sho"> <span>Trộn thứ tự đáp án <small class="note">Lựa chọn kiểu “Tất cả đều đúng” luôn giữ nguyên vị trí</small></span></label>
  <button class="p" id="go">Bắt đầu làm bài</button></div>`;
  document.getElementById('go').onclick=start;
  document.getElementById('theme').onclick=()=>{const r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches,t=dark?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('theme',t)}catch(e){}};
@@ -53,17 +63,19 @@ function start(){
  let l=Q.map((_,i)=>i).filter(i=>!chs.length||chs.includes(Q[i].c));
  if(document.getElementById('shuf').checked)for(let i=l.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[l[i],l[j]]=[l[j],l[i]]}
  const v=n=>document.querySelector(`input[name=${n}]:checked`).value;
- S={list:l.slice(0,+v('cnt')),ans:{},lock:{},cur:0,mode:v('mode'),go:1};
+ S={list:l.slice(0,+v('cnt')),ans:{},lock:{},cur:0,mode:v('mode'),go:1,so:document.getElementById('sho').checked};
+ S.ord=mkOrd(S.list,S.so);
  quiz();
 }
 function quiz(){
  const an=S.go;S.go=0;
  const i=S.list[S.cur],q=Q[i],a=S.ans[i]||[],k=KEY[i],multi=!!k&&k.length>1,N=S.list.length;
  const locked=!!S.lock[i]&&S.mode==='p',show=locked&&!!k;
- const rows=q.o.map((o,j)=>{let c=a.includes(j)?'sel':'';if(show){if(k.includes(j))c='ok';else if(a.includes(j))c='bad'}
-  return `<button class="opt ${c}" data-j="${j}" ${locked?'disabled':''}><span class="l">${LT[j].toUpperCase()}</span><span>${esc(o)}</span></button>`}).join('');
+ const ord=S.ord&&S.ord[i]||q.o.map((_,j)=>j);
+ const rows=ord.map((j,p)=>{let c=a.includes(j)?'sel':'';if(show){if(k.includes(j))c='ok';else if(a.includes(j))c='bad'}
+  return `<button class="opt ${c}" data-j="${j}" data-d="${p}" ${locked?'disabled':''}><span class="l">${LT[p].toUpperCase()}</span><span>${esc(q.o[j])}</span></button>`}).join('');
  const nav=S.list.map((x,p)=>`<button class="${(S.ans[x]||[]).length?'done':''} ${p===S.cur?'cur':''}" data-p="${p}">${p+1}</button>`).join('');
- const fb=show?`<p class="${eq(a,k)?'g':'r'}">${eq(a,k)?'Đúng':'Sai. Đáp án đúng: '+fmt(k)}</p>`:'';
+ const fb=show?`<p class="${eq(a,k)?'g':'r'}">${eq(a,k)?'Đúng':'Sai. Đáp án đúng: '+fmt(k,i)}</p>`:'';
  app.innerHTML=`<div class="top"><div class="cnt"><b>${S.cur+1}</b><span>/ ${N}</span></div><span class="tag">Chương ${q.c}, câu #${i+1}</span><button class="ghost" id="sub">Nộp bài</button></div>
  <div class="track"><i style="width:${N>1?S.cur/(N-1)*100:100}%"></i><u style="left:${N>1?S.cur/(N-1)*100:100}%"></u></div>
  <p class="hint">Phím tắt: A, B, C, D để chọn đáp án; mũi tên trái, phải để chuyển câu.</p>
@@ -84,8 +96,8 @@ function quiz(){
  document.getElementById('sub').onclick=finish;
  window.scrollTo(0,0);
 }
-function review(i){const k=KEY[i]||[];
- return qhtml(i)+Q[i].o.map((o,j)=>`<div class="ro ${k.includes(j)?'ok':''}">${LT[j].toUpperCase()}. ${esc(o)}${k.includes(j)?' ✓':''}</div>`).join('')}
+function review(i){const k=KEY[i]||[],ord=S.ord&&S.ord[i]||Q[i].o.map((_,j)=>j);
+ return qhtml(i)+ord.map((j,p)=>`<div class="ro ${k.includes(j)?'ok':''}">${LT[p].toUpperCase()}. ${esc(Q[i].o[j])}${k.includes(j)?' ✓':''}</div>`).join('')}
 function countUp(){
  const t=document.querySelector('.bt');if(!t||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
  const to=parseInt(t.textContent),s=performance.now();
@@ -107,7 +119,7 @@ function finish(){
  const bad=gr.length-ok.length-S.list.filter(i=>KEY[i]!=null&&!(S.ans[i]||[]).length).length;
  const rows=S.list.map(i=>{const a=S.ans[i],k=KEY[i];
   const st=k==null?'<span class="note">Chưa có đáp án</span>':!(a||[]).length?'<span class="r">Bỏ trống</span>':eq(a,k)?'<span class="g">Đúng</span>':'<span class="r">Sai</span>';
-  return `<tr><td>#${i+1}</td><td>${fmt(a)}</td><td>${fmt(k)}</td><td>${st}</td></tr><tr><td colspan="4" style="padding:0"><details><summary class="note">Xem câu hỏi</summary>${review(i)}</details></td></tr>`}).join('');
+  return `<tr><td>#${i+1}</td><td>${fmt(a,i)}</td><td>${fmt(k,i)}</td><td>${st}</td></tr><tr><td colspan="4" style="padding:0"><details><summary class="note">Xem câu hỏi</summary>${review(i)}</details></td></tr>`}).join('');
  const wrong=S.list.filter(i=>KEY[i]!=null&&!eq(S.ans[i],KEY[i])),pct=gr.length?ok.length/gr.length:0,C=2*Math.PI*54;
  app.innerHTML=`<h1>Kết quả</h1><div class="panel center">
  ${badge(pct)}
@@ -117,14 +129,14 @@ function finish(){
 ${chap()}
  <div class="panel"><table><tr><th>Câu</th><th>Bạn chọn</th><th>Đáp án</th><th>Kết quả</th></tr>${rows}</table></div>`;
  document.getElementById('again').onclick=()=>home();
- document.getElementById('rw').onclick=()=>{S={list:wrong,ans:{},lock:{},cur:0,mode:S.mode};quiz()};
+ document.getElementById('rw').onclick=()=>{S={list:wrong,ans:{},lock:{},cur:0,mode:S.mode,so:S.so,go:1};S.ord=mkOrd(wrong,S.so);quiz()};
  window.scrollTo(0,0);
  countUp();if(pct>=.8)confetti();
 }
 document.addEventListener('keydown',e=>{
  if(!S||!document.querySelector('.opt')||e.ctrlKey||e.metaKey||e.altKey)return;
  const k=e.key.toLowerCase(),j=k.length===1?'abcdef123456'.indexOf(k):-1;
- if(j>=0){const b=document.querySelector(`.opt[data-j="${j%6}"]`);if(b&&!b.disabled)b.click();return}
+ if(j>=0){const b=document.querySelector(`.opt[data-d="${j%6}"]`);if(b&&!b.disabled)b.click();return}
  if(k==='arrowright'||(k==='enter'&&e.target===document.body)){document.getElementById('nx').click()}
  if(k==='arrowleft'){const p=document.getElementById('pv');if(p&&!p.disabled)p.click()}
 });

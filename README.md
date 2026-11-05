@@ -1,179 +1,91 @@
-# 🌐 Ôn Thi Mạng Máy Tính
+# Ôn thi mạng máy tính
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Project-Computer%20Networking-2563eb?style=for-the-badge&logo=protonvpn&logoColor=white" alt="Computer Networking Project">
-  <img src="https://img.shields.io/badge/Questions-333-16a34a?style=for-the-badge" alt="333 questions">
-  <img src="https://img.shields.io/badge/Chapters-7-f59e0b?style=for-the-badge" alt="7 chapters">
-  <img src="https://img.shields.io/badge/HTML-CSS-JavaScript-ea580c?style=for-the-badge&logo=javascript&logoColor=white" alt="HTML CSS JavaScript">
-</p>
+Web ôn thi trắc nghiệm môn Mạng máy tính với **333 câu hỏi**, chấm điểm ngay trên trình duyệt. Không cần cài đặt, không cần máy chủ, không cần tài khoản.
 
-<p align="center">
-  <strong>Website trắc nghiệm giúp ôn tập kiến thức Mạng máy tính một cách trực quan, linh hoạt và hiệu quả.</strong>
-  <br>
-  Chọn chương cần học, tùy chỉnh số lượng câu hỏi, làm bài và xem kết quả ngay sau khi hoàn thành.
-</p>
+**Dùng thử:** https://nguyennhuduc-dev.github.io/mangmaytinh/
 
-<p align="center">
-  <a href="https://nguyennhuduc-dev.github.io/mangmaytinh/"><strong>🚀 Mở website</strong></a>
-  ·
-  <a href="https://github.com/nguyennhuduc-dev/mangmaytinh"><strong>📁 Mã nguồn</strong></a>
-</p>
+## Tính năng
 
----
+- **333 câu hỏi dạng chữ**, chia theo 7 chương, mỗi câu có các đáp án A, B, C, D.
+- **Hai chế độ làm bài:**
+  - *Luyện tập*: báo đúng hoặc sai ngay sau mỗi câu.
+  - *Thi*: chỉ chấm điểm khi nộp bài.
+- **Chọn phạm vi ôn:** chọn một hay nhiều chương, rồi chọn 20, 30, 50, 100 hoặc tất cả số câu. Có tùy chọn trộn thứ tự câu hỏi.
+- **Trộn thứ tự đáp án (tùy chọn):** đảo vị trí các đáp án để không nhớ theo vị trí. Những lựa chọn kiểu "Cả 3 ý trên đều đúng" hay "Tất cả đều đúng" luôn giữ nguyên vị trí, và các câu có lựa chọn nhắc đến chữ cái (như "Cả A và B") không bị đảo.
+- **Câu chọn nhiều đáp án:** 19 câu cần chọn đủ các đáp án đúng, chọn thiếu hoặc thừa đều tính là sai.
+- **Câu có hình minh họa:** 5 câu (sơ đồ mạng, danh sách tài khoản) hiển thị kèm hình.
+- **Trang kết quả:** điểm phần trăm, số câu đúng, sai, bỏ trống, kết quả theo từng chương và danh sách xem lại từng câu.
+- **Làm lại câu sai:** một nút để làm lại riêng các câu sai và bỏ trống.
+- **Phím tắt trên máy tính:** `A` `B` `C` `D` (hoặc `1` đến `4`) để chọn đáp án, `←` `→` để chuyển câu, `Enter` để sang câu sau.
+- **Giao diện:** hỗ trợ điện thoại, có chế độ sáng và tối (tự theo thiết bị, có nút đổi tay), tự giảm hiệu ứng nếu thiết bị bật chế độ giảm chuyển động.
 
-## 📌 Giới thiệu
+## Cấu trúc thư mục
 
-**Ôn Thi Mạng Máy Tính** là một website trắc nghiệm được xây dựng bằng HTML, CSS và JavaScript thuần. Dự án hỗ trợ người học luyện tập kiến thức thông qua ngân hàng **333 câu hỏi thuộc 7 chương**.
-
-Giao diện được thiết kế theo hướng tối giản, dễ sử dụng trên máy tính và điện thoại. Người học có thể chủ động chọn phạm vi ôn tập, làm từng câu hỏi, theo dõi tiến độ và xem lại những câu chưa trả lời hoặc làm chưa chính xác.
-
-## ✨ Tính năng nổi bật
-
-| Tính năng | Mô tả |
-|---|---|
-| 📚 Ngân hàng câu hỏi | 333 câu hỏi được phân chia theo 7 chương |
-| 🎯 Tùy chọn số câu | 20, 30, 50, 100 câu hoặc toàn bộ câu hỏi |
-| 🧩 Lọc theo chương | Chọn một hoặc nhiều chương muốn ôn tập |
-| 🔀 Trộn câu hỏi | Xáo trộn thứ tự câu hỏi trước khi bắt đầu |
-| 📖 Chế độ luyện tập | Nhận phản hồi đúng/sai ngay khi chọn đáp án |
-| 📝 Chế độ thi | Hoàn thành bài làm rồi mới xem kết quả |
-| ☑️ Câu nhiều đáp án | Hỗ trợ câu hỏi có nhiều lựa chọn đúng |
-| 📊 Thống kê kết quả | Hiển thị số câu đúng, sai, bỏ trống và kết quả theo chương |
-| 🔁 Ôn tập câu sai | Làm lại những câu trả lời sai hoặc chưa hoàn thành |
-| 🌗 Giao diện sáng/tối | Chuyển đổi giao diện và lưu lựa chọn trên trình duyệt |
-| ⌨️ Phím tắt | Dùng A–F để chọn đáp án, phím mũi tên để chuyển câu |
-
-## 🖥️ Giao diện
-
-Website có các màn hình chính:
-
-1. **Trang bắt đầu:** thiết lập số lượng câu, chế độ làm bài và chương học.
-2. **Màn hình làm bài:** hiển thị câu hỏi, lựa chọn đáp án, tiến độ và danh sách câu.
-3. **Màn hình kết quả:** tổng hợp điểm, thống kê theo chương và cho phép xem lại từng câu.
-
-## 🛠️ Công nghệ sử dụng
-
-- **HTML5:** xây dựng cấu trúc trang web.
-- **CSS3:** thiết kế giao diện, hiệu ứng chuyển động và khả năng hiển thị trên nhiều kích thước màn hình.
-- **JavaScript (Vanilla JS):** xử lý câu hỏi, đáp án, chấm điểm và tương tác.
-- **LocalStorage:** lưu lựa chọn giao diện sáng/tối trên trình duyệt.
-
-> Dự án không yêu cầu framework, thư viện JavaScript bên ngoài hoặc cơ sở dữ liệu để chạy các chức năng hiện tại.
-
-## 📂 Cấu trúc dự án
-
-```text
-mangmaytinh/
-├── index.html      # Trang HTML chính
-├── style.css       # Giao diện và responsive
-├── app.js          # Logic làm bài, chấm điểm và thống kê
-├── data.js         # Ngân hàng 333 câu hỏi và đáp án
-└── README.md       # Tài liệu giới thiệu dự án
+```
+.
+├── index.html   # Khung trang, nạp các file bên dưới
+├── style.css    # Giao diện
+├── app.js       # Logic: chọn phạm vi, làm bài, chấm điểm, kết quả
+├── data.js      # Dữ liệu 333 câu hỏi và đáp án
+└── README.md
 ```
 
-## 🚀 Cách chạy dự án
+Bốn file đầu phải nằm **cùng một thư mục**, trong đó `index.html` là trang chính.
 
-### Cách 1: Sử dụng trực tiếp
+## Chạy trên máy
 
-1. Clone repository về máy:
+Tải mã nguồn về, giữ nguyên các file trong cùng một thư mục rồi mở `index.html` bằng trình duyệt. Hoặc chạy một máy chủ tĩnh:
 
-   ```bash
-   git clone https://github.com/nguyennhuduc-dev/mangmaytinh.git
-   ```
+```bash
+git clone https://github.com/nguyennhuduc-dev/mangmaytinh.git
+cd mangmaytinh
+python3 -m http.server 8000
+```
 
-2. Mở thư mục dự án:
+Sau đó mở http://localhost:8000.
 
-   ```bash
-   cd mangmaytinh
-   ```
+Font chữ (Be Vietnam Pro và Space Grotesk) được tải từ Google Fonts. Khi không có mạng, trang tự dùng font hệ thống và vẫn hoạt động bình thường.
 
-3. Mở file `index.html` bằng trình duyệt (Chrome, Edge hoặc Firefox).
+## Cấu trúc dữ liệu
 
-### Cách 2: Sử dụng VS Code
+`data.js` khai báo mảng `Q`, mỗi phần tử là một câu hỏi theo thứ tự trong file đề gốc:
 
-1. Mở thư mục dự án bằng Visual Studio Code.
-2. Mở file `index.html`.
-3. Chạy bằng tiện ích Live Server nếu đã cài đặt, hoặc mở trực tiếp file bằng trình duyệt.
-
-Không cần chạy lệnh `npm install` hay cài đặt môi trường backend.
-
-## 🎮 Hướng dẫn sử dụng
-
-1. Mở website và chọn số lượng câu hỏi muốn làm.
-2. Chọn **Luyện tập** hoặc **Thi**.
-3. Chọn chương cần ôn tập. Có thể chọn nhiều chương cùng lúc.
-4. Bật hoặc tắt tùy chọn trộn câu hỏi.
-5. Nhấn **Bắt đầu làm bài**.
-6. Chọn đáp án; với câu nhiều đáp án, hãy chọn đầy đủ các phương án rồi nhấn **Chốt đáp án** trong chế độ luyện tập.
-7. Sử dụng nút **Trước/Sau** hoặc danh sách câu hỏi để di chuyển.
-8. Nhấn **Nộp bài** để xem kết quả và phần thống kê.
-9. Chọn **Làm lại câu sai và bỏ trống** để tiếp tục ôn tập.
-
-### Phím tắt
-
-| Phím | Chức năng |
-|---|---|
-| `A` – `F` | Chọn đáp án tương ứng |
-| `←` | Quay lại câu trước |
-| `→` | Chuyển đến câu tiếp theo |
-
-## ⚙️ Tùy chỉnh ngân hàng câu hỏi
-
-Dữ liệu câu hỏi được lưu trong file `data.js` dưới dạng mảng JavaScript `Q`.
-
-Mỗi câu hỏi có cấu trúc cơ bản như sau:
-
-```javascript
+```js
 {
-  n: 1,                              // Số thứ tự câu hỏi
-  t: "Nội dung câu hỏi?",            // Nội dung câu hỏi
-  o: [                               // Danh sách lựa chọn
-    "Phương án A",
-    "Phương án B",
-    "Phương án C",
-    "Phương án D"
-  ],
-  k: [0],                            // Đáp án đúng (đếm từ 0)
-  c: 1                               // Chương
+  n: 26,                                   // số thứ tự câu
+  t: "Hệ điều hành nào là hệ điều hành server? (Chọn 2 đáp án)",   // nội dung câu hỏi
+  o: ["Microsoft Windows server 2012", "Microsoft Windows 7",
+      "Microsoft Windows Vista", "Microsoft Windows server 2008"], // các đáp án A, B, C, D
+  k: [0, 3],                               // đáp án đúng (0 là A, 1 là B, ...)
+  c: 1                                     // chương
+  // f: "data:image/webp;base64,..."       // hình minh họa (chỉ một số câu)
 }
 ```
 
-**Lưu ý:**
-- `k: [0]` nghĩa là đáp án A đúng.
-- `k: [1, 2]` nghĩa là đáp án B và C đúng.
-- `c` xác định chương chứa câu hỏi.
-- Có thể thêm thuộc tính `f` để gắn hình minh họa cho câu hỏi.
-- Cần bảo đảm dữ liệu có đúng định dạng để website xử lý chính xác.
+- `k` có nhiều phần tử thì đó là câu chọn nhiều đáp án.
+- Nếu câu hỏi có hình, trường `f` chứa hình dạng base64 và đoạn `[[fig]]` trong `t` đánh dấu vị trí hiện hình.
 
-## 🗺️ Định hướng phát triển
+**Sửa một đáp án:** mở `data.js`, tìm câu cần sửa theo `n`, đổi giá trị `k`, ví dụ `k: [2]` nghĩa là đáp án đúng là C.
 
-Một số tính năng có thể được bổ sung trong các phiên bản tiếp theo:
+## Triển khai lên GitHub Pages
 
-- [ ] Tìm kiếm câu hỏi theo từ khóa.
-- [ ] Lọc câu hỏi theo mức độ khó.
-- [ ] Lưu lịch sử các lần làm bài.
-- [ ] Tạo đề thi theo cấu hình nâng cao.
-- [ ] Bổ sung giải thích chi tiết cho từng đáp án.
-- [ ] Xây dựng trang quản lý và cập nhật ngân hàng câu hỏi.
+Vì chỉ gồm file tĩnh, web chạy được trên GitHub Pages miễn phí:
 
-## ⚠️ Lưu ý
+1. Đẩy toàn bộ file lên nhánh `main` của repo.
+2. Vào **Settings**, chọn **Pages**.
+3. Ở mục **Build and deployment**, chọn **Deploy from a branch**, nhánh `main`, thư mục `/ (root)`, rồi bấm **Save**.
+4. Sau khoảng một phút, web sẽ chạy tại `https://<tên-tài-khoản>.github.io/<tên-repo>/`.
 
-- Đây là công cụ hỗ trợ ôn tập, không thay thế giáo trình hoặc tài liệu chính thức của môn học.
-- Người học nên đối chiếu những nội dung chưa chắc chắn với tài liệu giảng dạy.
-- Điểm số được tính dựa trên đáp án được khai báo trong `data.js`; chất lượng kết quả phụ thuộc vào độ chính xác của dữ liệu này.
-- Giao diện và tiến độ làm bài hiện được xử lý phía trình duyệt; dự án chưa có hệ thống tài khoản hoặc đồng bộ dữ liệu giữa các thiết bị.
+## Lưu ý về đáp án
 
-## 👨‍💻 Tác giả
+Đáp án lấy từ các file chương của giáo viên (dạng `The correct answer is: ...`), chưa đối chiếu lại với kiến thức bên ngoài. Một số đáp án trong bài gốc có thể không trùng với thực tế, ví dụ câu về cơ quan cấp phát địa chỉ IPv6 global unicast, loại địa chỉ chỉ có trong IPv6, địa chỉ broadcast của mạng 150.20.0.0 và ý nghĩa của địa chỉ 127.0.0.1. Nếu bạn ôn để thi theo đúng bài của giáo viên thì dùng như hiện tại, còn muốn đáp án theo kiến thức thực tế thì sửa trong `data.js` như hướng dẫn ở trên.
 
-**Nguyễn Như Đức**
+Việc chia câu hỏi theo 7 chương dựa trên thứ tự các file chương trong đề gốc. Các câu trùng đề được xếp vào chương đứng ngay trước chúng.
 
-- GitHub: [@nguyennhuduc-dev](https://github.com/nguyennhuduc-dev)
-- Repository: [mangmaytinh](https://github.com/nguyennhuduc-dev/mangmaytinh)
+## Công nghệ
 
----
+HTML, CSS và JavaScript thuần, không dùng thư viện hay công cụ build nào.
 
-<p align="center">
-  Made with ❤️ for learning Computer Networking
-  <br>
-  <sub>© 2026 — Ôn Thi Mạng Máy Tính</sub>
-</p>
+## Tác giả
+
+[nguyennhuduc-dev](https://github.com/nguyennhuduc-dev)
