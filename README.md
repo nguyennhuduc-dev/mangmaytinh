@@ -1,91 +1,205 @@
-# Ôn thi mạng máy tính
+# 🌐 Mạng máy tính — Online Quiz
 
-Web ôn thi trắc nghiệm môn Mạng máy tính với **333 câu hỏi**, chấm điểm ngay trên trình duyệt. Không cần cài đặt, không cần máy chủ, không cần tài khoản.
+<p align="center">
+  <img src="https://img.shields.io/badge/Computer%20Networking-Online%20Quiz-2563eb?style=for-the-badge&logo=cisco&logoColor=white" alt="Computer Networking Online Quiz">
+  <img src="https://img.shields.io/badge/Questions-333-16a34a?style=for-the-badge" alt="333 questions">
+  <img src="https://img.shields.io/badge/Chapters-7-f59e0b?style=for-the-badge" alt="7 chapters">
+  <img src="https://img.shields.io/badge/Status-Active-22c55e?style=for-the-badge" alt="Active project">
+</p>
 
-**Dùng thử:** https://nguyennhuduc-dev.github.io/mangmaytinh/
+<p align="center">
+  <strong>Website ôn tập và kiểm tra kiến thức môn Mạng máy tính.</strong><br>
+  Luyện tập linh hoạt · Kiểm tra nhanh chóng · Theo dõi kết quả
+</p>
 
-## Tính năng
+<p align="center">
+  <a href="https://nguyennhuduc-dev.github.io/mangmaytinh/">
+    <img src="https://img.shields.io/badge/🚀_TRẢI_NGHIỆM_WEBSITE-2f6fed?style=for-the-badge" alt="Trải nghiệm website">
+  </a>
+  <a href="https://github.com/nguyennhuduc-dev/mangmaytinh">
+    <img src="https://img.shields.io/badge/SOURCE_CODE-181717?style=for-the-badge&logo=github" alt="Source code">
+  </a>
+</p>
 
-- **333 câu hỏi dạng chữ**, chia theo 7 chương, mỗi câu có các đáp án A, B, C, D.
-- **Hai chế độ làm bài:**
-  - *Luyện tập*: báo đúng hoặc sai ngay sau mỗi câu.
-  - *Thi*: chỉ chấm điểm khi nộp bài.
-- **Chọn phạm vi ôn:** chọn một hay nhiều chương, rồi chọn 20, 30, 50, 100 hoặc tất cả số câu. Có tùy chọn trộn thứ tự câu hỏi.
-- **Trộn thứ tự đáp án (tùy chọn):** đảo vị trí các đáp án để không nhớ theo vị trí. Những lựa chọn kiểu "Cả 3 ý trên đều đúng" hay "Tất cả đều đúng" luôn giữ nguyên vị trí, và các câu có lựa chọn nhắc đến chữ cái (như "Cả A và B") không bị đảo.
-- **Câu chọn nhiều đáp án:** 19 câu cần chọn đủ các đáp án đúng, chọn thiếu hoặc thừa đều tính là sai.
-- **Câu có hình minh họa:** 5 câu (sơ đồ mạng, danh sách tài khoản) hiển thị kèm hình.
-- **Trang kết quả:** điểm phần trăm, số câu đúng, sai, bỏ trống, kết quả theo từng chương và danh sách xem lại từng câu.
-- **Làm lại câu sai:** một nút để làm lại riêng các câu sai và bỏ trống.
-- **Phím tắt trên máy tính:** `A` `B` `C` `D` (hoặc `1` đến `4`) để chọn đáp án, `←` `→` để chuyển câu, `Enter` để sang câu sau.
-- **Giao diện:** hỗ trợ điện thoại, có chế độ sáng và tối (tự theo thiết bị, có nút đổi tay), tự giảm hiệu ứng nếu thiết bị bật chế độ giảm chuyển động.
+---
 
-## Cấu trúc thư mục
+## 📌 Giới thiệu
 
+**Mạng máy tính — Online Quiz** là website hỗ trợ học tập và ôn thi môn Mạng máy tính thông qua hình thức trắc nghiệm trực tuyến.
+
+Dự án giúp người học chủ động lựa chọn nội dung ôn tập, thực hành theo từng chương, kiểm tra kiến thức và xem lại những câu trả lời chưa chính xác.
+
+Website được xây dựng bằng **HTML, CSS và JavaScript thuần**, không cần backend, không yêu cầu cài đặt thư viện và có thể triển khai miễn phí trên GitHub Pages.
+
+## ✨ Tính năng
+
+| Tính năng | Mô tả |
+|---|---|
+| 📚 Ngân hàng câu hỏi | 333 câu hỏi được chia thành 7 chương |
+| 📖 Luyện tập | Hiển thị kết quả đúng/sai ngay sau khi trả lời |
+| 📝 Chế độ thi | Chấm điểm sau khi hoàn thành và nộp bài |
+| 🎯 Tùy chỉnh đề | Chọn 20, 30, 50, 100 hoặc toàn bộ câu hỏi |
+| 🗂️ Chọn chương | Ôn tập một hoặc nhiều chương tùy ý |
+| 🔀 Trộn câu hỏi | Ngẫu nhiên thứ tự câu hỏi trong bài |
+| 🔤 Trộn đáp án | Đảo vị trí lựa chọn, có xử lý các đáp án phụ thuộc thứ tự |
+| ☑️ Câu nhiều đáp án | Hỗ trợ câu hỏi có nhiều lựa chọn đúng |
+| 🖼️ Hình minh họa | Hiển thị hình ảnh đi kèm câu hỏi |
+| 📊 Thống kê | Xem số câu đúng, sai, bỏ trống và kết quả theo chương |
+| 🔁 Ôn câu sai | Làm lại các câu sai và câu chưa trả lời |
+| 🌗 Giao diện | Hỗ trợ Light Mode, Dark Mode và thiết bị di động |
+| ⌨️ Phím tắt | Hỗ trợ thao tác nhanh trên máy tính |
+
+### Chế độ làm bài
+
+- **Luyện tập:** hệ thống phản hồi ngay sau khi chọn đáp án. Với câu hỏi nhiều lựa chọn, người học chốt đáp án trước khi xem kết quả.
+- **Thi:** người học hoàn thành bài làm và chỉ xem kết quả sau khi nộp bài.
+
+### Phím tắt
+
+| Phím | Chức năng |
+|---|---|
+| `A`, `B`, `C`, `D` | Chọn đáp án |
+| `1`, `2`, `3`, `4` | Chọn đáp án |
+| `←` | Câu trước |
+| `→` | Câu tiếp theo |
+| `Enter` | Chuyển sang câu tiếp theo |
+
+## 🖥️ Công nghệ sử dụng
+
+<p>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/GitHub%20Pages-222222?style=flat-square&logo=githubpages&logoColor=white" alt="GitHub Pages">
+</p>
+
+| Công nghệ | Vai trò |
+|---|---|
+| HTML5 | Xây dựng cấu trúc trang |
+| CSS3 | Thiết kế giao diện, hiệu ứng và responsive |
+| JavaScript | Xử lý câu hỏi, bài làm và chấm điểm |
+| Google Fonts | Cung cấp font Be Vietnam Pro và Space Grotesk |
+| GitHub Pages | Triển khai website tĩnh |
+
+**Không sử dụng framework hoặc thư viện JavaScript bên ngoài.** Dự án không cần quy trình build.
+
+## 📂 Cấu trúc thư mục
+
+```text
+mangmaytinh/
+├── index.html   # Trang HTML chính
+├── style.css    # Giao diện và hiệu ứng
+├── app.js       # Logic ứng dụng và xử lý bài làm
+├── data.js      # Ngân hàng câu hỏi, đáp án và hình ảnh
+└── README.md    # Tài liệu dự án
 ```
-.
-├── index.html   # Khung trang, nạp các file bên dưới
-├── style.css    # Giao diện
-├── app.js       # Logic: chọn phạm vi, làm bài, chấm điểm, kết quả
-├── data.js      # Dữ liệu 333 câu hỏi và đáp án
-└── README.md
-```
 
-Bốn file đầu phải nằm **cùng một thư mục**, trong đó `index.html` là trang chính.
+Bốn file `index.html`, `style.css`, `app.js` và `data.js` cần được giữ cùng thư mục để website hoạt động đúng.
 
-## Chạy trên máy
+## 🚀 Cài đặt và chạy trên máy
 
-Tải mã nguồn về, giữ nguyên các file trong cùng một thư mục rồi mở `index.html` bằng trình duyệt. Hoặc chạy một máy chủ tĩnh:
+### 1. Clone repository
 
 ```bash
 git clone https://github.com/nguyennhuduc-dev/mangmaytinh.git
-cd mangmaytinh
-python3 -m http.server 8000
 ```
 
-Sau đó mở http://localhost:8000.
+### 2. Di chuyển vào thư mục dự án
 
-Font chữ (Be Vietnam Pro và Space Grotesk) được tải từ Google Fonts. Khi không có mạng, trang tự dùng font hệ thống và vẫn hoạt động bình thường.
+```bash
+cd mangmaytinh
+```
 
-## Cấu trúc dữ liệu
+### 3. Khởi chạy
 
-`data.js` khai báo mảng `Q`, mỗi phần tử là một câu hỏi theo thứ tự trong file đề gốc:
+**Cách đơn giản:** mở file `index.html` bằng trình duyệt.
 
-```js
+**Hoặc sử dụng Python HTTP Server:**
+
+```bash
+python -m http.server 8000
+```
+
+Mở trình duyệt và truy cập:
+
+```text
+http://localhost:8000
+```
+
+> Không cần cài đặt package hay thư viện bổ sung. Google Fonts cần Internet để tải font; website vẫn có font hệ thống dự phòng.
+
+## 🧩 Cấu trúc dữ liệu câu hỏi
+
+Ngân hàng câu hỏi được khai báo trong file `data.js` thông qua mảng `Q`.
+
+Ví dụ:
+
+```javascript
 {
-  n: 26,                                   // số thứ tự câu
-  t: "Hệ điều hành nào là hệ điều hành server? (Chọn 2 đáp án)",   // nội dung câu hỏi
-  o: ["Microsoft Windows server 2012", "Microsoft Windows 7",
-      "Microsoft Windows Vista", "Microsoft Windows server 2008"], // các đáp án A, B, C, D
-  k: [0, 3],                               // đáp án đúng (0 là A, 1 là B, ...)
-  c: 1                                     // chương
-  // f: "data:image/webp;base64,..."       // hình minh họa (chỉ một số câu)
+    n: 1,
+    t: "Mạng máy tính bao gồm những gì?",
+    o: [
+        "Phần cứng, phần mềm",
+        "Phần cứng, phần mềm, các giao thức",
+        "Các giao thức",
+        "Phần mềm, các giao thức"
+    ],
+    k: [1],
+    c: 1
 }
 ```
 
-- `k` có nhiều phần tử thì đó là câu chọn nhiều đáp án.
-- Nếu câu hỏi có hình, trường `f` chứa hình dạng base64 và đoạn `[[fig]]` trong `t` đánh dấu vị trí hiện hình.
+| Thuộc tính | Ý nghĩa |
+|---|---|
+| `n` | Số thứ tự câu hỏi |
+| `t` | Nội dung câu hỏi |
+| `o` | Danh sách các lựa chọn |
+| `k` | Chỉ số đáp án đúng, bắt đầu từ 0 |
+| `c` | Chương của câu hỏi |
+| `f` | Hình ảnh minh họa dạng data URI (nếu có) |
 
-**Sửa một đáp án:** mở `data.js`, tìm câu cần sửa theo `n`, đổi giá trị `k`, ví dụ `k: [2]` nghĩa là đáp án đúng là C.
+**Quy ước đáp án:** `0 = A`, `1 = B`, `2 = C`, `3 = D`. Nếu `k` chứa nhiều chỉ số, câu hỏi có nhiều đáp án đúng.
 
-## Triển khai lên GitHub Pages
+## 🌍 Triển khai trên GitHub Pages
 
-Vì chỉ gồm file tĩnh, web chạy được trên GitHub Pages miễn phí:
+1. Đẩy mã nguồn lên nhánh `main` của repository.
+2. Mở **Settings → Pages**.
+3. Trong **Build and deployment**, chọn **Deploy from a branch**.
+4. Chọn branch `main` và thư mục `/(root)`.
+5. Nhấn **Save** và chờ GitHub Pages triển khai.
 
-1. Đẩy toàn bộ file lên nhánh `main` của repo.
-2. Vào **Settings**, chọn **Pages**.
-3. Ở mục **Build and deployment**, chọn **Deploy from a branch**, nhánh `main`, thư mục `/ (root)`, rồi bấm **Save**.
-4. Sau khoảng một phút, web sẽ chạy tại `https://<tên-tài-khoản>.github.io/<tên-repo>/`.
+Website chính thức:
 
-## Lưu ý về đáp án
+**https://nguyennhuduc-dev.github.io/mangmaytinh/**
 
-Đáp án lấy từ các file chương của giáo viên (dạng `The correct answer is: ...`), chưa đối chiếu lại với kiến thức bên ngoài. Một số đáp án trong bài gốc có thể không trùng với thực tế, ví dụ câu về cơ quan cấp phát địa chỉ IPv6 global unicast, loại địa chỉ chỉ có trong IPv6, địa chỉ broadcast của mạng 150.20.0.0 và ý nghĩa của địa chỉ 127.0.0.1. Nếu bạn ôn để thi theo đúng bài của giáo viên thì dùng như hiện tại, còn muốn đáp án theo kiến thức thực tế thì sửa trong `data.js` như hướng dẫn ở trên.
+## ⚠️ Lưu ý về nội dung
 
-Việc chia câu hỏi theo 7 chương dựa trên thứ tự các file chương trong đề gốc. Các câu trùng đề được xếp vào chương đứng ngay trước chúng.
+- Bộ câu hỏi và đáp án được tổng hợp từ tài liệu học tập ban đầu.
+- Đáp án chưa được kiểm chứng độc lập toàn bộ theo các tài liệu chuyên ngành.
+- Một số câu có thể phản ánh đáp án trong tài liệu gốc, không nhất thiết hoàn toàn trùng với cách diễn giải hoặc tiêu chuẩn hiện hành.
+- Nếu phát hiện câu hỏi hoặc đáp án chưa chính xác, có thể kiểm tra và chỉnh sửa dữ liệu tương ứng trong `data.js`.
 
-## Công nghệ
+## 🛠️ Định hướng phát triển
 
-HTML, CSS và JavaScript thuần, không dùng thư viện hay công cụ build nào.
+- [ ] Lưu lịch sử các lần làm bài.
+- [ ] Đánh dấu câu hỏi yêu thích.
+- [ ] Tìm kiếm câu hỏi theo từ khóa.
+- [ ] Lọc câu hỏi theo mức độ khó.
+- [ ] Theo dõi tiến độ học tập qua nhiều lần kiểm tra.
+- [ ] Mở rộng ngân hàng câu hỏi cho các môn học khác.
 
-## Tác giả
+## 👨‍💻 Tác giả
 
-[nguyennhuduc-dev](https://github.com/nguyennhuduc-dev)
+**Nguyễn Như Đức**
+
+- GitHub: [@nguyennhuduc-dev](https://github.com/nguyennhuduc-dev)
+- Repository: [mangmaytinh](https://github.com/nguyennhuduc-dev/mangmaytinh)
+- Website: [Ôn thi Mạng máy tính](https://nguyennhuduc-dev.github.io/mangmaytinh/)
+
+---
+
+<p align="center">
+  <strong>🌐 COMPUTER NETWORKING — ONLINE QUIZ</strong><br>
+  <em>Learn smarter. Practice better. Improve every day.</em><br><br>
+  ⭐ Nếu dự án hữu ích, hãy để lại một Star trên GitHub nhé!
+</p>
